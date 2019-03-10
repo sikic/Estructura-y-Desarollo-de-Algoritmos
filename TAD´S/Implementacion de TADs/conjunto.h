@@ -25,11 +25,15 @@ public:
 	~set(); // destructor
 	void insert(T e);
 	bool contains(T e) const;
-	T menor();
 	void erase(T e);
+
+	//-----------
+	T menor();
 	void eraseMin();
 	void print(size_t k);
 	size_t pos(T e ,size_t ini,size_t fin);
+	//------------
+
 	bool empty() const;
 	size_t size() const;
 
@@ -106,13 +110,13 @@ bool set<T>::contains(T e) const {
 		++i;
 	return i < contador;
 }
-
+//**********************
 template<class T>
 inline T set<T>::menor()
 {
 	return datos[contador - 1];
 }
-
+//**********************
 template <class T>
 void set<T>::amplia() {
 	T * nuevos = new T[2 * capacidad];
@@ -135,13 +139,12 @@ void set<T>::erase(T e) {
 	else
 		throw std::domain_error("El elemento no esta");
 }
-
+/*******************************************/
 template<class T>
 inline void set<T>::eraseMin()
 {
 	contador--;
 }
-
 template<class T>
 inline void set<T>::print(size_t k)
 {
@@ -171,6 +174,7 @@ inline size_t set<T>::pos(T e, size_t ini, size_t fin)
 	}	
 }
 
+/*****************************************/
 
 template <class T>
 bool set<T>::empty() const {
