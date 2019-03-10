@@ -155,7 +155,7 @@ inline void set<T>::print(size_t k)
 template<class T>
 inline size_t set<T>::pos(T e, size_t ini, size_t fin)
 {
-	if (fin==ini) {// hay solo un elemento
+	if (fin == ini) {// hay solo un elemento
 		if (datos[ini] < e)
 			return ini;
 		else

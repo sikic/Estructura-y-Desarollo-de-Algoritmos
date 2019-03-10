@@ -12,7 +12,7 @@
 // configuración, y escribiendo la respuesta
 bool resuelveCaso() {
 	// leer los datos de la entrada
-	size_t k,i=0;
+	size_t k;
 	int aux;
 	std::string auxiliar;
 	char c;
@@ -27,10 +27,9 @@ bool resuelveCaso() {
 
 	if (c == 'N') { // si entra una n hacemos de numero si no de string
 
-		while (i != k) {
+		while (numeros.size() < k) {
 			std::cin >> aux;
 			numeros.insert(aux);
-			i++;
 		}
 		
 		std::cin >> aux;
@@ -38,21 +37,17 @@ bool resuelveCaso() {
 		while (aux != -1) {
 			if (aux > numeros.menor() && !numeros.contains(aux)) {
 				numeros.insert(aux);
-				if (numeros.size() != k)
-					numeros.eraseMin();
-				i++;
+				numeros.eraseMin();
 			}
 			std::cin >> aux;
 		}
-
 		numeros.print(k);
 	}
 	else {
 
-		while (i != k) {
+		while (letras.size() < k) {
 			std::cin >> auxiliar;
 			letras.insert(auxiliar);
-			i++;
 		}
 
 		std::cin >> auxiliar;
@@ -60,9 +55,7 @@ bool resuelveCaso() {
 			while (auxiliar != "FIN") {
 				if (auxiliar > letras.menor() && !letras.contains(auxiliar)) {
 					letras.insert(auxiliar);
-					if (letras.size() != k)
-						letras.eraseMin();
-					i++;
+					letras.eraseMin();
 				}
 				std::cin >> auxiliar;
 			}
