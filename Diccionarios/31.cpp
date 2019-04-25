@@ -64,17 +64,11 @@ bool resuelveCaso(){
 					diccionario.at(cadena).push_back(i);
 				}
 				else {//la palabra ya existe asi que tenemos que insertar en numero de fila siempre y cuando no sea el mismo que ya tiene
-					bool encontrado = false;
-					for (size_t j = 0; j < it->second.size() && !encontrado; j++)
-					{
-						if (it->second[j] == i)
-							encontrado = true;
-					}
-
-					if(!encontrado)
+					if(it->second.empty())
+						it->second.push_back(i);
+					else if( it->second[it->second.size() - 1] != i)
 						it->second.push_back(i);
 				}
-
 			}
 			cadena = "";
 		}
